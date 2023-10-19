@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis index{% endblock %}
+
+{% block body %}
+<main class="container">
+    <section class="row">
+        <div class="col-12">
+            <div class="col-sm-6">
+            <h1>Avis</h1>
+            </div>
+             <div class="card">
+                    <div class="card-header">
+                         <h1 class="card-title">Avis des passagers</h1>
+                    </div>
+                 <div class="card-body">
+                    <table id="example1" class="table table-bordered table-striped" >
+                             <thead>
+                                 <tr>
+                                     <th>Id</th>
+                                     <th>Auteur</th>
+                                     <th>Commentaire</th>
+                                     <th>Note</th>
+                                     <th>DateDePublication</th>
+                                     <th>actions</th>
+                                                     </tr>
+                             </thead>
+                             <tbody>
+                             {% for avi in avis %}
+                                 <tr>
+                                     <td>{{ avi.id }}</td>
+                                     <td>{{ avi.Auteur }}</td>
+                                     <td>{{ avi.Commentaire }}</td>
+                                     <td>{{ avi.note }}</td>
+                                     <td>{{ avi.dateDePublication ? avi.dateDePublication|date('Y-m-d') : '' }}</td>
+                                     <td>
+                                         <a href="{{ path('app_avis_delete', {'id': avi.id}) }}" 
+                                           onsubmit="return confirm('Vous voulez vraiment supprimer ce item?');" class="btn btn-danger">Suprimmer</a>
+                                         <a href="{{ path('app_avis_edit', {'id': avi.id}) }}" class="btn btn-warning">Modifier</a>
+                                     </td>
+                                 </tr>
+                             {% else %}
+                                 <tr>
+                                     <td colspan="6">no records found</td>
+                                 </tr>
+                             {% endfor %}
+                             </tbody>
+                    </table>
+                    </div>
+            </div>
+                            <a href="{{ path('app_avis_new') }}" class="btn btn-primary my-3"><i class="nav-icon fas fa-plus"></i> Nouveau</a>
+                
+        </div>
+    </section>
+</main>
+{% endblock %}

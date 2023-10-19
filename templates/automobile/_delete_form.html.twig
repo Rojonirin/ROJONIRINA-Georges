@@ -1,0 +1,13 @@
+<main class="container">
+    <section class="row">
+        <div class="col-12">
+                <form method="post" action="{{ path('app_automobile_delete', {'id': automobile.id}) }}" onsubmit="return confirm('Voulez vous suprimmer vraiment cet item?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ automobile.id) }}">
+                    <button class="btn btn-danger">
+                    <i class="nav-icon bi bi-trash"></i>
+                    Supprimer</button>
+                </form>
+         </div>
+    </section>
+</main>
+

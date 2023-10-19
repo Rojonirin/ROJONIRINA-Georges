@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Trajet index{% endblock %}
+
+{% block body %}
+<main class="container">
+    <section class="row">
+        <div class="col-12">
+            <div class="col-sm-6">
+            <h1>Trajet</h1>
+            </div>
+             <div class="card">
+                    <div class="card-header">
+                         <h1 class="card-title">Trajet Disponible</h1>
+                          <a href="{{ path('app_trajet_new') }}" class="btn btn-primary my-3 float-right" ><i class="nav-icon fas fa-plus"></i> Nouveau</a>
+                    </div>
+              <!-- /.card-header -->
+                    <div class="card-body">
+                    
+                    <table id="example1" class="table table-bordered table-striped" >
+                        <thead>
+                        <tr>
+                                    <th>Id</th>
+                            <th>Date</th>
+                            <th>Heure</th>
+                            <th>AdresseDepart</th>
+                            <th>AdresseArrivee</th>
+                            <th>Placedisponible</th>
+                            <th>Prix</th>
+                            <th>actions</th>
+                        </tr>
+                        </thead>
+                    <tbody>
+                    {% for trajet in trajets %}
+                        <tr>
+                            <td>{{ trajet.id }}</td>
+                            <td>{{ trajet.date ? trajet.date|date('Y-m-d') : '' }}</td>
+                            <td>{{ trajet.heure ? trajet.heure|date('H:i:s') : '' }}</td>
+                            <td>{{ trajet.adresseDepart }}</td>
+                            <td>{{ trajet.dateArrivee }}</td>
+                            <td>{{ trajet.placedisponible }}</td>
+                            <td>{{ trajet.prix }}</td>
+
+                            <td>
+                               <a href="{{ path('app_trajet_delete', {'id': trajet.id}) }}" onsubmit="return confirm('Vous voulez vraiment supprimer ce item?');" class="btn btn-danger">supprimer</a>
+                                <a href="{{ path('app_trajet_edit', {'id': trajet.id}) }}" class="btn btn-warning">
+                                </i>modifier</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="8">no records found</td>
+                        </tr>
+                            {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+                
+                  <a href="{{ path('app_reservation') }}" class="btn btn-primary float-left"><i class="nav-icon fas fa-plus"></i> Réserver </a>  
+    
+        </div>
+    </section>
+</main>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Automobile{% endblock %}
+
+{% block body %}
+<main class="container">
+    <section class="row">
+        <div class="col-12">
+            <h1>Ajouter nouveau Automobile</h1>          
+                    <div class="card card-info">
+                         <div class="card-header">
+                              <h1 class="card-title">Nouveau automobile</h1>
+                          </div>
+                    
+                    <form class="form-horizontal">
+                          <div class="card-footer">
+                              {{ include('automobile/_form.html.twig') }}
+                              <a href="{{ path('app_automobile_index') }}" class="btn btn-default float-right">Retour</a>
+                          </div>
+                        </form>
+                    </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

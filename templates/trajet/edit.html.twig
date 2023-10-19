@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Trajet{% endblock %}
+
+{% block body %}
+<main class="container">
+    <section class="row">
+         <div class="col-12">
+            <div class="col-sm-6">
+                        <h1>Modifier trajet</h1>
+                    </div>
+            <div class="card card-info">
+                   <div class="card-header">
+                        <h1 class="card-title">Modifier trajet</h1>
+                    </div>
+              <form class="form-horizontal">
+              <div class="card-footer">
+             {{ include('trajet/_form.html.twig', {'button_label': 'Update'}) }}
+
+             <a href="{{ path('app_trajet_index') }}">Annuler</a>
+
+             {{ include('trajet/_delete_form.html.twig') }}
+           </div>
+              </form>
+            </div>
+        </div>    
+      </div>
+    </section>
+</main>
+
+{% endblock %}

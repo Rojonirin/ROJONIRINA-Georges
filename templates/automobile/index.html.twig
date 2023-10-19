@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Automobile index{% endblock %}
+
+{% block body %}
+<main class="container">
+    <section class="row">
+        <div class="col-12">
+            <div class="col-sm-6">
+            <h1>Automabile</h1>
+            </div>
+             <div class="card">
+                    <div class="card-header">
+                         <h1 class="card-title">Liste automobile</h1>
+                    </div>
+                 <div class="card-body">
+                    <form class="form-horizontal">
+                    <table id="example1" class="table table-bordered table-striped" >
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Annee</th>
+                                <th>Capacite</th>
+                                <th>Couleur</th>
+                                <th>Immatriculation</th>
+                                <th>Marque</th>
+                                <th>Modele</th>
+                                <th>actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for automobile in automobiles %}
+                            <tr>
+                                <td>{{ automobile.id }}</td>
+                                <td>{{ automobile.annee }}</td>
+                                <td>{{ automobile.capacite }}</td>
+                                <td>{{ automobile.couleur }}</td>
+                                <td>{{ automobile.immatriculation }}</td>
+                                <td>{{ automobile.marque }}</td>
+                                <td>{{ automobile.modele }}</td>
+                                <td>
+                                    <a href="{{ path('app_automobile_delete', {'id': automobile.id}) }}" class="btn btn-danger" 
+                                    onsubmit="return confirm('Voulez vous suprimmer vraiment cet item?');">supprimer</a>
+                                    <a href="{{ path('app_automobile_edit', {'id': automobile.id}) }}" class="btn btn-warning">modifier</a>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="8">no records found</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    </form>
+                 </div>
+           </div>
+
+                <a href="{{ path('app_automobile_new') }}"class="btn btn-primary my-3"><i class="nav-icon fas fa-plus"></i> Nouveau</a>
+
+        </div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}RECHERCHE DE COVOITURAGE{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        
+        <!-- Feuilles de styles -->
+         {% block stylesheets %}
+  <link rel="stylesheet"  href="{{asset('assets/bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/jqvmap/jqvmap.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/daterangepicker/daterangepicker.css')}}">
+  <link rel="stylesheet" href="{{asset('assets/plugins/summernote/summernote-bs4.css')}}">        
+         {% endblock %}
+    </head>
+    <body class="hold-transition sidebar-mini layout-fixed">
+    {% block body %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form>
+                    <div class="mb-3">
+                        <label for="departure" class="form-label"></label>
+                        <input type="text" class="form-control" id="departure" placeholder="Ville de départ">
+                    </div>
+                    <div class="mb-3">
+                        <label for="destination" class="form-label"></label>
+                        <input type="text" class="form-control" id="destination" placeholder="Ville d'arrivée">
+                    </div>
+                    <div class="mb-3">
+                        <label for="date" class="form-label"></label>
+                        <input type="date" class="form-control" id="date">
+                    </div>
+                    <div class="mb-3">
+                        <label for="passengers" class="form-label">Place</label>
+                        <select class="form-select" id="place">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Réserver</button>
+                    <a href="{{path('app_main')}}" class="btn btn-default float-right">retour à la page d'acceuil</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+             
+            
+{% endblock %}
+</body>
+  {% block javascripts %}
+ <script src="{{asset('assets/plugins/jquery/jquery.min.js')}}"></script>
+ <script src="{{asset('assets/dist/js/adminlte.js')}}"></script>
+ <script src="{{asset('assets/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+  {% endblock %}
+  </html>
+    
+
+

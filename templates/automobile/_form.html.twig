@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+<main class="container">
+    <section class="row">
+         <div class="col-12">
+            {{ form_widget(form) }}
+            <button class="btn btn-info" >{{ button_label|default('Ajouter') }}</button>
+        </div>
+    </section>
+</main>
+    
+{{ form_end(form) }}

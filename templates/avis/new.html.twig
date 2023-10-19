@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Avis{% endblock %}
+
+{% block body %}
+
+<main class="container">
+    <section class="row">
+        <div class="col-12">
+            <h1>Ajouter nouveau Avis</h1>          
+                    <div class="card card-info">
+                         <div class="card-header">
+                              <h1 class="card-title">Nouveau avis</h1>
+                          </div>
+                        <form class="form-horizontal">
+                            <div class="card-footer">
+                            
+                            {{ include('avis/_form.html.twig') }}
+
+                            <a href="{{ path('app_avis_index') }}" class="btn btn-default float-right">Retour</a>
+                             </div>
+                        </form>
+                  </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
